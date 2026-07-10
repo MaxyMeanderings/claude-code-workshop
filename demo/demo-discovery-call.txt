@@ -1,0 +1,43 @@
+[SYNTHETIC DEMO TRANSCRIPT — fictional. No real people or companies. Built for the IEEE × Claude agent-building workshop observability demo.]
+
+Recording — Discovery call
+Date context: recorded Monday. Follow-ups reference "this Friday" and "the 15th."
+Participants: Tyler Sztuka (SZD Labs) · Jordan Reyes (VP Operations, Meridian Freight)
+
+Jordan: Thanks for making the time, Tyler. I'll be honest, we've kicked off two automation projects in the last year and both kind of fizzled. So I'm a little skeptical, but a few people whose judgment I trust told me I should talk to you specifically.
+
+Tyler: I appreciate the candor. Tell me what "fizzled" actually looked like — did they ship and get abandoned, or never ship?
+
+Jordan: Both, kind of. The first one, a vendor built us this dispatch-optimization thing, it worked in the demo and then nobody on the floor trusted it, so they just went back to the spreadsheet. The second never made it out of IT.
+
+Tyler: Yeah. That first one is the story I hear the most — the pilot works, but there's no trust and no visibility into why it's making the call it's making, so the humans route around it. That's not a modeling problem, that's a governance and change-management problem.
+
+Jordan: That's exactly it. Priya — she runs our data team — she keeps saying we don't actually know what these systems are doing once they're live.
+
+Tyler: Priya's right, and honestly that's the whole game. Most organizations decide they have oversight but never put in the layer that tells them when, where, and how the thing is actually running. If you can't see which system ran, what it touched, and what it cost, you can't govern it, and if you can't govern it your floor team is correct not to trust it.
+
+Jordan: Okay, so if we did work together, where would you even start? We're a 400-person company, we move freight across the Southeast, margins are thin, I can't bet the quarter on a science experiment.
+
+Tyler: I wouldn't start with an agent at all. Most of what fizzles should've been a boring deterministic workflow with good instrumentation, not an autonomous system. I'd start by mapping one high-pain, high-exception process — sounds like dispatch — and figure out whether it actually needs judgment or just needs a reliable pipeline. Then we instrument whatever we build from day one, so trust is earned with evidence instead of a demo.
+
+Jordan: That actually makes me feel better, not worse, which is unusual for a sales call.
+
+Tyler: I'm not going to sell you an agent you don't need. Here's what I'd suggest as a next step. Let me put together a short scoping proposal — one process, fixed price, with the observability piece baked in so you can see exactly what it does. I can get that to you by the 15th.
+
+Jordan: The 15th works. Can you also send over that logistics case study you mentioned before we hang up? Priya's going to want to see it before she'll get on a call.
+
+Tyler: Absolutely, I'll send the case study today, and I'll loop Priya in on the proposal thread. Would it make sense to get the three of us on a call this Friday to walk through scope together?
+
+Jordan: Friday afternoon, yeah. After 2 is best for me.
+
+Tyler: Done. I'll send a calendar hold for Friday at 3. One more thing — do you know roughly what the dispatch inefficiency is costing you a month? Even a rough number helps me size whether this is worth doing.
+
+Jordan: Ballpark? Probably forty, fifty thousand a month in overtime and deadhead miles. It's not nothing.
+
+Tyler: That's a real number. That's the difference between a science experiment and a business case. Fifty grand a month means even a partial fix pays for the whole engagement inside a quarter, and now we're not betting anything, we're just executing.
+
+Jordan: Alright. Send me the case study and the proposal, and let's talk Friday with Priya. This was genuinely helpful.
+
+Tyler: My pleasure, Jordan. Talk Friday.
+
+[END]
