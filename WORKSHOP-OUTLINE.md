@@ -65,7 +65,7 @@ The Claude Code building blocks, taught from zero:
 > instrument for the fast ones.
 
 - **Instrument (in Claude Code):** the `mlflow-tracing` plugin or `mlflow autolog claude --local`; server on
-  `:5000`; traces flush on session end (→ "watch it work, then open the receipts"). MLflow 3 rides the
+  `:5001` (5000 is often taken); traces flush on session end (→ "watch it work, then open the receipts"). MLflow 3 rides the
   **OpenTelemetry GenAI semantic conventions** — vendor-neutral, name it.
 - **The trace = the trajectory, not just the output.** Open the span tree. Then read the three off it:
 
