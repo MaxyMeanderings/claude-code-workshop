@@ -48,9 +48,9 @@ Source: mlflow.org/docs/latest/genai/tracing/integrations/listing/claude_code/
 > (install, start server, instrument, create experiment) in one shot, with all the Windows fixes baked in.
 > The manual steps below are the fallback / "understand each piece" version.
 
-Two terminals, both in the repo root (here: `C:\Users\Tyler\Claude Code Workshop`). Three machine-specific
-facts from the rehearsal: **`mlflow`/`pip` aren't on PATH here → use `python -m mlflow` and `python -m pip`**;
-**port 5000 was already taken → we use 5001**; and on Windows the console is cp1252, so **export
+Two terminals, both at the root of your `claude-code-workshop` clone. Three portability facts from the
+rehearsals: **if `mlflow`/`pip` aren't on PATH → use `python -m mlflow` and `python -m pip`**; **if port
+5000 is already taken → use 5001 (as these commands do)**; and on Windows the console is cp1252, so **export
 `PYTHONUTF8=1` before `mlflow autolog claude`** or it crashes with `UnicodeEncodeError` printing its `✓`.
 (Extractor subagents are global in `~/.claude/agents`, available from any folder.)
 
@@ -61,15 +61,15 @@ python -m pip install "mlflow>=3.4"
 
 **2. Start the tracking server** (Terminal A — leave it running):
 ```
-python -m mlflow server --host 127.0.0.1 --port 5001 --backend-store-uri "sqlite:///C:/Users/Tyler/Claude Code Workshop/demo/mlflow.db"
+python -m mlflow server --host 127.0.0.1 --port 5001 --backend-store-uri "sqlite:///demo/mlflow.db"
 ```
 UI at http://127.0.0.1:5001. The sqlite store keeps rehearsal traces on disk as a fallback.
 
 **3. Instrument Claude Code — NON-destructively** (Terminal B). Export UTF-8 first (Windows cp1252 fix):
 ```
 export PYTHONUTF8=1                                                 # Git Bash; or set PYTHONUTF8=1 in cmd
-python -m mlflow autolog claude -d "C:/Users/Tyler/Claude Code Workshop" -u "http://127.0.0.1:5001" -n "Workshop Demo" --local -y
-python -m mlflow autolog claude -d "C:/Users/Tyler/Claude Code Workshop" --status   # confirm it's wired
+python -m mlflow autolog claude -d . -u "http://127.0.0.1:5001" -n "Workshop Demo" --local -y
+python -m mlflow autolog claude -d . --status   # confirm it's wired
 ```
 This installs the `mlflow-tracing` plugin and writes config into `.claude/settings.local.json` (marketplace
 + plugin + env vars). Never touches shared settings. Remove later with `... autolog claude --disable`.
